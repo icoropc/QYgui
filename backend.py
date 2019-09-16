@@ -36,18 +36,20 @@ fbound_high=700
 
 for i in data1:
     if lbound_low<i[0]<lbound_high:
-        laser_signal_ref+=i[1]-bckgdcounts
+        laser_signal_ref+=i[1]*i[0]/1000
     elif fbound_low<i[0]<fbound_high:
-        fluor_signal_ref+=i[1]-bckgdcounts
+        fluor_signal_ref+=i[1]*i[0]/1000
         
 for i in data2:
     if lbound_low<i[0]<lbound_high:
-        laser_signal_sample+=i[1]-bckgdcounts
+        laser_signal_sample+=i[1]*i[0]/1000
     elif fbound_low<i[0]<fbound_high:
-        fluor_signal_sample+=i[1]-bckgdcounts
+        fluor_signal_sample+=i[1]*i[0]/1000
     
-QY=fluor_signal_sample/(laser_signal_ref-laser_signal_sample)*620/405
+QY=fluor_signal_sample/(laser_signal_ref-laser_signal_sample)
 
+print(fluor_signal_sample)
+print(QY)
 #fig, ax = plt.subplots()
 #
 #plt.plot(data1[:,0],data1[:,1]-bckgdcounts,color='black')

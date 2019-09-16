@@ -62,7 +62,7 @@ l3 = tk.Label(frame2, text = "Laser low").grid(row=1,column=0)
 v1 = tk.StringVar()
 e3 = tk.Entry(frame2)
 e3.grid(row=1,column=2)
-e3.insert(0,"400")
+e3.insert(0,"395")
 l4 = tk.Label(frame2, text = "Laser high").grid(row=1,column=4)
 e4 = tk.Entry(frame2)
 e4.grid(row=1,column=5)
@@ -126,17 +126,17 @@ def add_plot():
     
     for i in data1:
         if lbound_low<i[0]<lbound_high:
-            laser_signal_ref+=i[1]-bckgdcounts
+            laser_signal_ref+=i[1]*i[0]/1000
         elif fbound_low<i[0]<fbound_high:
-            fluor_signal_ref+=i[1]-bckgdcounts
-        
+            fluor_signal_ref+=i[1]*i[0]/1000
+            
     for i in data2:
         if lbound_low<i[0]<lbound_high:
-            laser_signal_sample+=i[1]-bckgdcounts
+            laser_signal_sample+=i[1]*i[0]/1000
         elif fbound_low<i[0]<fbound_high:
-            fluor_signal_sample+=i[1]-bckgdcounts
+            fluor_signal_sample+=i[1]*i[0]/1000
     
-    QY=fluor_signal_sample/(laser_signal_ref-laser_signal_sample)*620/405
+    QY=fluor_signal_sample/(laser_signal_ref-laser_signal_sample)
 
     a.plot(data1[:,0],data1[:,1]-bckgdcounts,color='black')
     a.plot(data2[:,0],data2[:,1]-bckgdcounts,color='red')
