@@ -1,0 +1,1 @@
+python /Users/icoropc/Dropbox/Int\ Sph/gui/gridtest.py
