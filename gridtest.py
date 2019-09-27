@@ -99,11 +99,9 @@ def add_plot():
     a = fig.add_subplot(111)
     ax=a.axes
 
-#    data1 = np.genfromtxt(root.ref_file,skip_header=16,delimiter='\t')
-#    data2 = np.genfromtxt(root.samp_file,skip_header=16,delimiter='\t')
-    
-    data1 = np.genfromtxt('blank.txt',skip_header=16,delimiter='\t')
-    data2 = np.genfromtxt('sample.txt',skip_header=16,delimiter='\t')
+    data1 = np.genfromtxt(root.ref_file,skip_header=16,delimiter='\t')
+    data2 = np.genfromtxt(root.samp_file,skip_header=16,delimiter='\t')
+
     
     bckgdcounts=0
 
